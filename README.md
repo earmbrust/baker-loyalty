@@ -73,6 +73,11 @@ To 'deploy' the application locally, you must run:
 docker run baker-loyalty
 ```
 
+## Accessing the Application
+The application can be found at https://localhost:3000
+
+For simplicity, you may also use this link: [Baker Loyalty](http://localhost:3000)
+
 ## Known Issues
 Certain mail hosts do not work with the sendmail tool configuration used, and require authentication and/or a hostname matching the sending ip to send mail to users of the system.  One notable example of this is Google's GMail service.  In a production system the sendmail call used in this application would reference a real SMTP host to send mail from, which would prevent these issues.  You will recognize this issue by the ETIMEDOUT error at the console logs.  Due to the nature of this example, authentication or guaranteeing the hostname are not possible.
 
