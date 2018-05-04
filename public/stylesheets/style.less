@@ -1,0 +1,78 @@
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.logo {
+    margin-top: 1em;
+}
+.col.inputcontainer {
+    min-height: 100vh;
+}
+
+.numberdisplay {
+    font-size: 1.5rem;
+    line-height: 3rem;
+
+    i {
+        &.material-icons {
+            line-height: 1.5rem;
+            font-size: 1.5rem;
+            vertical-align: middle;
+        }
+
+    }
+
+}
+
+@media only screen and (min-width:1401px) {
+    .numberdisplay {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+
+        i {
+            &.material-icons {
+                vertical-align: inherit;
+            }
+
+        }
+
+    }
+
+}
+
+.numberbuttons a,
+.numbersubmit a {
+    font-size: 3rem;
+    line-height: 3.5rem;
+}
+
+#phonenumber {
+    font-size: 3rem;
+    font-family: monospace;
+}
+
+main {
+    min-height: 100vh;
+
+    > .row {
+        margin: 0;
+    }
+
+}
+
+html {
+    overflow: hidden;
+}

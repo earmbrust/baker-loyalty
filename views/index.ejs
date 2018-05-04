@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Baker Loyalty</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="theme-color" content="#3f51b5">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="msapplication-navbutton-color" content="#3f51b5">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicon.png" />
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css">
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+        <main>
+            <div class="row">
+                <div class="col hide-on-small-only m6">
+                    <h1 class="col s12 center-align">Can I have your number?</h1>
+                    <img src="/images/shop.svg" class="col s12 responsive-img" alt="Image of storefront">
+                    <div class="col s12 l10 offset-l1">
+                        <div class="card-panel grey lighten-5 z-depth-1">
+                            <div class="row valign-wrapper">
+                                <div class="col s2">
+                                    <img src="images/review.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                                </div>
+                                <div class="col s10">
+                                    <p class="black-text">
+                                        "I really enjoy using Baker Loyalty, because it helps me save money every time I shop!"
+                                    </p>
+                                    <p class="grey-text text-darken-2">
+                                        - Carol from Denver, CO
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 indigo darken-4 inputcontainer">
+                    <div class="row">
+                        <div class="col s6 offset-s3">
+                            <img class="logo" src="/images/baker-logo_white-04-04.svg">
+                        </div>
+                    </div>
+                    <div class="row numberdisplay">
+                        <div class="col s8 offset-s1 m10 l5 offset-l3 center-align white-text indigo lighten-1 phonenumber" data-token="<%=csrfToken %>">
+                            (###) ###-####
+                        </div>
+                        <div class="col s2 l1 indigo lighten-1">
+                            <a href="#" data-action="backspace"><i class="material-icons white-text">backspace</i></a>
+                        </div>
+                    </div>
+                    <div class="row centeralign">
+                        <div class="row numberbuttons">
+                            <a class="col s2 offset-s3 indigo lighten-1 waves-effect waves-light btn-large" data-value="1">1</a>
+                            <a class="col s2 indigo lighten-1 waves-effect waves-light btn-large" data-value="2">2</a>
+                            <a class="col s2 indigo lighten-1 waves-effect waves-light btn-large" data-value="3">3</a>
+                        </div>
+                        <div class="row numberbuttons">
+                            <a class="col s2 offset-s3 indigo lighten-1 waves-effect waves-light btn-large" data-value="4">4</a>
+                            <a class="col s2 indigo lighten-1 waves-effect waves-light btn-large" data-value="5">5</a>
+                            <a class="col s2 indigo lighten-1 waves-effect waves-light btn-large" data-value="6">6</a>
+                        </div>
+                        <div class="row numberbuttons">
+                            <a class="col s2 offset-s3 indigo lighten-1 waves-effect waves-light btn-large" data-value="7">7</a>
+                            <a class="col s2 indigo lighten-1 waves-effect waves-light btn-large" data-value="8">8</a>
+                            <a class="col s2 indigo lighten-1 waves-effect waves-light btn-large" data-value="9">9</a>
+                        </div>
+                        <div class="row numberbuttons">
+                            <a class="col s2 offset-s5 indigo lighten-1 waves-effect waves-light btn-large" data-value="0">0</a>
+                        </div>
+                        <div class="row numbersubmit">
+                            <a class="col s6 offset-s3 indigo lighten-1 waves-effect waves-light btn-large" data-action="submit">Check In</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div id="registerModal" class="modal">
+            <div class="modal-content">
+                <h4>Register</h4>
+                <div class="row">
+                    <div class="col s12">
+                        It looks like you haven't checked in with us before.  Please enter just a little bit of information, and we'll get you started on your way to earning great rewards!
+                    </div>
+                </div>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input name="first_name" type="text" class="validate">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input name="last_name" type="text" class="validate">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <input name="phone" type="hidden">
+                        <input name="_csrf" type="hidden" value="<%=csrfToken %>">
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="waves-effect waves-light btn indigo modal-submit">Register</a>
+                <a href="#!" class="waves-effect waves-light btn modal-close">Cancel</a>
+            </div>
+        </div>
+        <div id="registrationSuccessModal" class="modal">
+            <div class="modal-content">
+                <h4>Success!</h4>
+                <p class="flow-text">Congratulations! You just earned <span class="bold">50</span> points for registering for Baker Loyalty!</p>
+                <p class="flow-text">You are now registered, and will begin accruing points with each login!</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-light btn indigo">Ok</a>
+            </div>
+        </div>
+        <div id="checkinSuccessModal" class="modal">
+            <div class="modal-content">
+                <h4>You earned points!</h4>
+                <p class="flow-text">Congratulations! You earned <span class="bold newpoints"></span> points for checking in this visit!</p>
+                <p class="flow-text">That brings your total rewards points to <span class="bold totalpoints"></span>!</p>
+                <p class="flow-text">You have checked in a total of <span class="bold totalcheckins"></span> times!</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-light btn indigo">Ok</a>
+            </div>
+        </div>
+        <div id="rapidfireModal" class="modal">
+            <div class="modal-content">
+                <h4>We're sorry!</h4>
+                <p class="flow-text">You checked in recently, and must wait until your next visit to check in again!</p>
+                <p class="flow-text">Thank you for your business, we look forward to seeing you next time!</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-light btn indigo">Ok</a>
+            </div>
+        </div>
+        <div id="validationerrorModal" class="modal">
+            <div class="modal-content">
+                <h4>Oops!</h4>
+                <p class="flow-text">Please enter a valid phone number to check in.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect wave-light btn indigo">Ok</a>
+            </div>
+        </div>
+        <div id="errorModal" class="modal">
+            <div class="modal-content">
+                <h4>Error</h4>
+                <p class="flow-text">There was an error processing your checkin, please contact customer service.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect wave-light btn indigo">Ok</a>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+        <script src="/javascripts/application.min.js"></script>
+    </body>
+</html>
